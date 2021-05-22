@@ -4,6 +4,7 @@ const Campsite = require('./models/campsite');
 const url = 'mongodb://localhost:27017/nucampsite';
 const connect = mongoose.connect(url, {
 	useCreateIndex: true,
+	useFindAndModify: false,
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
@@ -15,7 +16,6 @@ connect.then(() => {
 		name: 'React Lake Campground',
 		description: 'test',
 	})
-
 		.then((campsite) => {
 			console.log(campsite);
 			return Campsite.find();
